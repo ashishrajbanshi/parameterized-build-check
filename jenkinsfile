@@ -9,7 +9,7 @@ node(){
     ])
     checkout scm;
     // This limits build concurrency to 1 per branch
-   // properties([disableConcurrentBuilds()])
+    options{disableConcurrentBuilds()}
 
       stage('Deploy Delta Package'){
         if(params.Deploy){
