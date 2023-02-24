@@ -1,0 +1,25 @@
+PACKAGE_NAME = "ComplianceQuest"
+node(){
+    properties([
+        parameters([
+            booleanParam(name: 'Deploy', defaultValue: 'true', description: 'Deploys delta changes in the packaging org.'),
+            booleanParam(name: 'Destroy', defaultValue: 'true', description: 'Deploys delta destructive changes in the packaging org.'),
+            booleanParam(name: 'Package', defaultValue: 'true', description: 'Start Beta Upload')
+        ])
+    ])
+
+      stage('Deploy Delta Package'){
+        if(params.Deploy){
+            echo "Starting Delta Deployment..."
+            
+        }
+
+        if(params.Destroy){
+            echo "Starting destructive changes Deployment..."
+           
+        }
+        if(params.Deploy && params.Destroy){
+           echo "both"
+        }
+    }
+}
