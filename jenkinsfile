@@ -1,5 +1,6 @@
 PACKAGE_NAME = "ComplianceQuest"
 node(){
+properties([disableConcurrentBuilds()])
     properties([
         parameters([
             booleanParam(name: 'Deploy', defaultValue: 'true', description: 'Deploys delta changes in the packaging org.'),
@@ -9,7 +10,7 @@ node(){
     ])
     checkout scm;
     // This limits build concurrency to 1 per branch
-    options{disableConcurrentBuilds()}
+    
 
       stage('Deploy Delta Package'){
         if(params.Deploy){
