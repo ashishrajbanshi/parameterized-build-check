@@ -1,7 +1,8 @@
 PACKAGE_NAME = "ComplianceQuest"
 node(){
-properties([disableConcurrentBuilds()])
+//properties([disableConcurrentBuilds()])
     properties([
+    disableConcurrentBuilds(),
         parameters([
             booleanParam(name: 'Deploy', defaultValue: 'true', description: 'Deploys delta changes in the packaging org.'),
             booleanParam(name: 'Destroy', defaultValue: 'true', description: 'Deploys delta destructive changes in the packaging org.'),
